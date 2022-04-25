@@ -15,14 +15,7 @@ class permisosAll extends Seeder
     public function run()
     {
         $data = [
-            'user-list',
-            'user-create',
-            'user-edit',
-            'user-delete',
-            'permission-list',
-            'permission-create',
-            'permission-edit',
-            'permission-delete',
+            
             'boleta-list',
 'boleta-create',
 'boleta-edit',
