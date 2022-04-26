@@ -257,7 +257,7 @@
         }
 	});
 		$('#id_sigmas').on("select2:select", function (e) {
-		$('#sigma').html(e.params.data.text);
+		$('#sigma').html(e.params.data.text1);
 		$('#id_sigma').val(e.params.data.id);
     });
 
