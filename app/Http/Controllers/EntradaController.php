@@ -162,7 +162,7 @@ class EntradaController extends Controller
         if($request->has('q')){
             $search = $request->q;
 
-            $sigma = Producto_sigma::select("codprosigma","descripcionsigma")
+            $sigma = Producto_sigma::select("id","codprosigma","descripcionsigma")
     		->where('codprosigma', 'LIKE', "%$search%")
     		->get(); 
         }
