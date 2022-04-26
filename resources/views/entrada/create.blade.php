@@ -110,6 +110,7 @@
                   <select class="form-control" style="width:100%;"  name="id_sigmas" id="id_sigmas">
                 
                   </select>
+				  <input type="hidden" name="id_sigma"  id="id_sigma">
                 </div>
 						</div>
 						<div class="col-md-10">
@@ -246,7 +247,8 @@
                     results: $.map(data, function (item) {
                         return {
                            id: item.descripcionsigma,
-                            text: item.codprosigma
+                            text: item.codprosigma,
+							text1:item.id
                         }
                     })
                 };
@@ -256,6 +258,7 @@
 	});
 		$('#id_sigmas').on("select2:select", function (e) {
 		$('#sigma').html(e.params.data.id);
+		$('#id_sigma').val(e.params.data.item1);
     });
 
 	</script>
@@ -285,7 +288,7 @@
 		precio_unitario = $("#precio_u").val();
 		sigma_cod = $("#id_sigmas option:selected").text();
 		id_productos=$("#id_producto").val();
-
+		id_sigmas=$('#id_sigma').val();
 		//Validar los campos
 		if(codproa != "" && proda != "" && cantidad > 0 && precio_unitario != "" && sigma_cod!= ""){
 
@@ -293,7 +296,7 @@
 			subtotal[cont] = (cantidad * parseFloat(precio_unitario));
 			total = (parseFloat(total)+ (parseFloat(subtotal[cont])));
 
-			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input  class = "form-control input-sm" readonly type="hidden" name="ids_producto[]" id="ides_producto[]" value="'+id_productos+'">'+codproa+'</td><td><input class = "form-control input-sm" type="text" name="proda[]" id="proda[]" value="'+proda+'" readonly></td><td><input class = "form-control input-sm" type="number" name="cantidad[]" id="cantidad[]"value="'+cantidad+'" readonly></td><td ><input class = "form-control input-sm"  type="number" name="precio_unitario[] id="precio_unitario[]" value="'+precio_unitario+'" readonly></td><td ><input class = "form-control input-sm"  type="number" name="sigma_cod[]" id="sigma_cod[]" value="'+sigma_cod+'" readonly></td><td class="col-mod-2">'+(subtotal[cont]).toLocaleString('de-DE')+'</td></tr>';
+			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input  class = "form-control input-sm" readonly type="hidden" name="ids_producto[]" id="ides_producto[]" value="'+id_productos+'">'+codproa+'</td><td><input class = "form-control input-sm" type="text" name="proda[]" id="proda[]" value="'+proda+'" readonly></td><td><input class = "form-control input-sm" type="number" name="cantidad[]" id="cantidad[]"value="'+cantidad+'" readonly></td><td ><input class = "form-control input-sm"  type="number" name="precio_unitario[] id="precio_unitario[]" value="'+precio_unitario+'" readonly></td><td ><input class = "form-control input-sm"  type="number" name="sigma_cod[]" id="sigma_cod[]" value="'+id_sigmas+'" readonly>'+sigma_cod+'</td><td class="col-mod-2">'+(subtotal[cont]).toLocaleString('de-DE')+'</td></tr>';
 
 			cont++;
 			limpiar();
