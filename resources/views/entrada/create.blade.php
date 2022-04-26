@@ -246,9 +246,9 @@
                 return {
                     results: $.map(data, function (item) {
                         return {
-                           id: item.descripcionsigma,
+                           id:item.id,
                             text: item.codprosigma,
-							text1:item.id
+							text1: item.descripcionsigma
                         }
                     })
                 };
@@ -257,8 +257,8 @@
         }
 	});
 		$('#id_sigmas').on("select2:select", function (e) {
-		$('#sigma').html(e.params.data.id);
-		$('#id_sigma').val(e.params.data.text1);
+		$('#sigma').html(e.params.data.text);
+		$('#id_sigma').val(e.params.data.id);
     });
 
 	</script>
