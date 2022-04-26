@@ -289,6 +289,7 @@
 		sigma_cod = $("#id_sigmas option:selected").text();
 		id_productos=$("#id_producto").val();
 		id_sigmas=$('#id_sigma').val();
+		console.log(id_sigmas);
 		//Validar los campos
 		if(codproa != "" && proda != "" && cantidad > 0 && precio_unitario != "" && sigma_cod!= ""){
 
