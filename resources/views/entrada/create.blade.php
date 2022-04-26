@@ -258,7 +258,7 @@
 	});
 		$('#id_sigmas').on("select2:select", function (e) {
 		$('#sigma').html(e.params.data.id);
-		$('#id_sigma').val(e.params.data.item1);
+		$('#id_sigma').val(e.params.data.text1);
     });
 
 	</script>
